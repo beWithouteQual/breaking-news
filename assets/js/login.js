@@ -24,7 +24,7 @@ $(() => {
     };
     $.ajax({
       type: "post",
-      url: "http://ajax.frontend.itheima.net/api/reguser",
+      url: "/api/reguser",
       data,
       success: (res) => {
         if (res.status !== 0) return layer.msg(res.message);
@@ -41,11 +41,12 @@ $(() => {
     };
     $.ajax({
       type: "post",
-      url: "http://ajax.frontend.itheima.net/api/login",
+      url: "/api/login",
       data,
       success: (res) => {
         if (res.status !== 0) return layer.msg(res.message);
         layer.msg(res.message);
+        localStorage.setItem("token", res.token);
         location.href = "../../index.html";
       },
     });
