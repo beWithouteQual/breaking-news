@@ -30,7 +30,7 @@ $(() => {
       { icon: 3, title: "提示" },
       function (index) {
         localStorage.removeItem("token");
-        location.href = "../../login.html";
+        location.replace("../../login.html");
 
         layer.close(index);
       }
