@@ -23,6 +23,7 @@
           <li class="layui-nav-item">
             <a href="javascript:;">
               <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+              <span class="text-avatar">A</span>
               个人中心
             </a>
             <dl class="layui-nav-child">
@@ -32,21 +33,32 @@
             </dl>
           </li>
           <li class="layui-nav-item">
-            <a href=""><span class="iconfont icon-tuichu"></span>退出</a>
+            <a href="javascript:;" id="btnLogout"
+              ><span class="iconfont icon-tuichu"></span>退出</a
+            >
           </li>
         </ul>
       </div>
 
       <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
+          <!-- 右侧导航栏上面头像 -->
+          <!-- 左侧侧边栏上面头像 -->
+          <div class="userinfo">
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+            <span class="text-avatar">A</span>
+            <span id="welcome">欢迎 ***</span>
+          </div>
           <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
           <ul
             class="layui-nav layui-nav-tree"
             lay-filter="test"
             lay-shrink="all"
           >
-            <li class="layui-nav-item">
-              <a href=""><span class="iconfont icon-home"></span>首页</a>
+            <li class="layui-nav-item layui-this">
+              <a href="./home/dashboard.html" target="fm"
+                ><span class="iconfont icon-home"></span>首页</a
+              >
             </li>
             <li class="layui-nav-item layui-nav-itemed">
               <a class="" href="javascript:;"
@@ -98,7 +110,7 @@
 
       <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px">内容主体区域</div>
+        <iframe name="fm" src="./home/dashboard.html" frameborder="0"></iframe>
       </div>
 
       <div class="layui-footer">
@@ -108,8 +120,12 @@
     </div>
     <!-- 导入 jQuery 文件 -->
     <script src="./assets/js/jQuery.min.js"></script>
+    <!-- 导入自己封装的 baseAPI -->
+    <script src="./assets/js/baseAPI.js"></script>
     <!-- 导入 layui 的js文件 -->
     <script src="./assets/lib/layui/layui.all.js"></script>
+    <!-- 导入 index 的js文件 -->
+    <script src="./assets/js/index.js"></script>
     <script>
       //JavaScript代码区域
       layui.use("element", function () {

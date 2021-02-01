@@ -18,14 +18,10 @@ $(() => {
 
   $("#register-form").on("submit", (e) => {
     e.preventDefault();
-    var data = {
-      username: $(".register-box [name=username]").val(),
-      password: $(".register-box [name=password]").val(),
-    };
     $.ajax({
       type: "post",
       url: "/api/reguser",
-      data,
+      data: $("#register-form").serialize(),
       success: (res) => {
         if (res.status !== 0) return layer.msg(res.message);
         layer.msg(res.message);
@@ -35,14 +31,10 @@ $(() => {
 
   $("#login-form").on("submit", (e) => {
     e.preventDefault();
-    var data = {
-      username: $(".loginBox [name=username]").val(),
-      password: $(".loginBox [name=password]").val(),
-    };
     $.ajax({
       type: "post",
       url: "/api/login",
-      data,
+      data: $("#login-form").serialize(),
       success: (res) => {
         if (res.status !== 0) return layer.msg(res.message);
         layer.msg(res.message);
